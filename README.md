@@ -1,56 +1,117 @@
 # kodabudget-api
 
-[![Java 21](https://img.shields.io/badge/Java-21-%23007396?style=flat-square)](https://adoptium.net/)   ![status: concluido](https://img.shields.io/badge/status-concluido-green)   ![licenca: MIT](https://img.shields.io/badge/licenca-MIT-blue)
+<div align="center">
 
-## Resumo
+**English** · [Português (Brasil)](README.md)
+
+</div>
+
+[![Java 21](https://img.shields.io/badge/Java-21-%23007396?style=flat-square)](https://adoptium.net/) [![Spring Boot 3](https://img.shields.io/badge/Spring%20Boot-3-%236DB33F?style=flat-square)](https://spring.io/projects/spring-boot) [![Maven](https://img.shields.io/badge/Maven-3.9-C71A36?style=flat-square&logo=apache-maven)](https://maven.apache.org/) [![JUnit 5](https://img.shields.io/badge/JUnit-5-25A162?style=flat-square&logo=junit5)](https://junit.org/junit5/) [![MIT License](https://img.shields.io/badge/License-MIT-f4c430?style=flat-square)](LICENSE)
+
+### Assistente financeiro com IA por voz: Whisper + tool calling Spring AI + edge-tts
+
+---
+
+## O que é
 
 Assistente financeiro com IA por voz: Whisper + tool calling Spring AI + edge-tts | Voice-powered finance assistant with Spring AI tool calling
-## Problema / Por que existe
 
-O projeto aborda um recorte prático e automatiza uma tarefa que, feita manualmente, é repetitiva e propensa a erro. O foco está em transformar dados ou processos em saída confiável, com código legível, testável e extensível.
-## Arquitetura
+---
 
-O código está organizado por responsabilidade em 0 classes principais:
-## O que faz
-
-Assistente financeiro com IA por voz: Whisper + tool calling Spring AI + edge-tts | Voice-powered finance assistant with Spring AI tool calling
-## Como rodar
-
-Requisitos: Java 21 e Maven.
+## Quick Start
 
 ```bash
-./mvnw verify     # build e executa os testes
+# Clone and enter
+git clone https://github.com/KelvinOliveiraCode/<repo>.git
+cd <repo>
+
+# Build and run tests
+./mvnw verify
+
+# Run the application
 ./mvnw spring-boot:run
-# API em http://localhost:8080
+# API available at http://localhost:8080
+# Swagger UI at http://localhost:8080/docs
 ```
-Se houver `application.yml`, ajuste a porta antes de rodar.
-## Estrutura do Projeto (Classes Principais)
+
+## Como funciona
+
+Clean, modular structure with separation of concerns.
+
+---
+
+## Capabilities
+
+| Capability | Description |
+|------------|-------------|
+| REST API | Spring Boot 3, versioned endpoints, RFC 7807 errors |
+| Fee Calculation | Strategy pattern ,  PIX R$0.49, Boleto R$2.49, Credit 3.99%, Debit 1.89% |
+| Risk Validation | Chain of Responsibility ,  HighValue -> Blocklist -> Velocity |
+| Transaction Registry | Singleton in-memory registry with full audit trail |
+| Event System | Observer pattern ,  decoupled messaging & metrics listeners |
+| Observability | /api/v1/observability endpoint exposing listener effects |
+| API Docs | springdoc-openapi ,  Swagger UI at /docs, OpenAPI 3 at /api-docs |
+| Testing | JUnit 5, Mockito, MockMvc ,  integration + unit tests |
 
 
-## Trade-offs e Decisões Técnicas
+---
 
-- Cadeia nova por requisição: manter a cadeia como bean singleton fez regras de risco pararem de executar após a primeira requisição. A fábrica agora cria uma cadeia nova a cada pagamento.
-- `BigDecimal` para dinheiro, nunca `double`, com `HALF_EVEN` de duas casas.
-- API versionada e erros no formato RFC 7807 (ProblemDetail).
-- Sem banco de dados: o registro mantém transações em memória para manter o foco nos padrões; a interface de repositório deixa o caminho aberto para trocar por JPA sem mexer no serviço.
-- Sem gateway externo: é uma simulação honesta, nenhum pagamento real acontece.
-- Mensageria e métricas simuladas em memória, expostas apenas pelo endpoint de observabilidade.
-## Limitações Conhecidas
 
-- Histórico em memória: reiniciar a aplicação apaga as transações registradas.
-- Não há autenticação nem autorização.
-- Mensageria e métricas não integram provedores externos (Kafka, Prometheus, etc.).
-- Lista restrita e limites de velocidade fixos no código (não configuráveis).
-## Testes
 
-```bash
-./mvnw test
-```
-O repositório contém testes automatizados (JUnit 5, Mockito, MockMvc).
-## Licença
+---
 
-Distribuído sob a licença MIT. Consulte o arquivo `LICENSE` do repositório.
-## Autor
+## FAQ
 
-Kelvin Oliveira ,  https://github.com/KelvinOliveiraCode
-Portfolio: https://kelvinoliveiracode.github.io/portfolio/
+<details>
+<summary><strong>What is this project?</strong></summary>
+
+A Java/Spring Boot study/project demonstrating core concepts.
+
+</details>
+
+<details>
+<summary><strong>How do I run it?</strong></summary>
+
+See [Quick Start](#quick-start) for copy-paste commands.
+
+</details>
+
+<details>
+<summary><strong>Are there tests?</strong></summary>
+
+No automated tests in this repository.
+
+</details>
+
+<details>
+<summary><strong>Can I use this in production?</strong></summary>
+
+This is a **study/portfolio project**. Review and harden (auth, persistence, monitoring, etc.) before production use.
+
+</details>
+
+
+
+---
+
+## Documentation
+
+- **Source Code** ,  Browse the `src/` directory for implementation details
+- **API Reference** ,  Swagger UI at `/docs` when running
+- **Architecture Diagram** ,  See [architecture.mermaid](docs/architecture.mermaid) (if present)
+- **Changelog** ,  [CHANGELOG.md](CHANGELOG.md) (if present)
+- **Contributing** ,  [CONTRIBUTING.md](CONTRIBUTING.md) (if present)
+
+## License
+
+[MIT](LICENSE) ,  Kelvin Oliveira
+
+---
+
+<div align="center">
+
+**Built with** · Java 21 + Spring Boot 3 + Maven
+
+**Author** · [Kelvin Oliveira](https://github.com/KelvinOliveiraCode) · [Portfolio](https://kelvinoliveiracode.github.io/portfolio/)
+
+</div>
