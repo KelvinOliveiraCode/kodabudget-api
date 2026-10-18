@@ -14,7 +14,7 @@
 
 ## O que é
 
-Assistente financeiro com IA por voz: Whisper + tool calling Spring AI + edge-tts | Voice-powered finance assistant with Spring AI tool calling
+Assistente financeiro com IA por voz: Whisper + tool calling Spring AI + edge-tts
 
 ---
 
