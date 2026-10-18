@@ -40,18 +40,18 @@ Estrutura limpa e modular com separação de responsabilidades.
 
 ---
 
-## Capabilities
+## Capacidades
 
-| Capability | Description |
+| Capacidade | Descrição |
 |------------|-------------|
-| REST API | Spring Boot 3, versioned endpoints, RFC 7807 errors |
-| Fee Calculation | Strategy pattern ,  PIX R$0.49, Boleto R$2.49, Credit 3.99%, Debit 1.89% |
-| Risk Validation | Chain of Responsibility ,  HighValue -> Blocklist -> Velocity |
-| Transaction Registry | Singleton in-memory registry with full audit trail |
-| Event System | Observer pattern ,  decoupled messaging & metrics listeners |
-| Observability | /api/v1/observability endpoint exposing listener effects |
-| API Docs | springdoc-openapi ,  Swagger UI at /docs, OpenAPI 3 at /api-docs |
-| Testing | JUnit 5, Mockito, MockMvc ,  integration + unit tests |
+| API REST | Spring Boot 3, endpoints versionados, erros RFC 7807 |
+| Cálculo de Taxa | Strategy pattern ,  PIX R$0,49, Boleto R$2,49, Crédito 3,99%, Débito 1,89% |
+| Validação de Risco | Chain of Responsibility ,  HighValue -> Blocklist -> Velocity |
+| Registro de Transações | Registry Singleton em memória com trilha de auditoria completa |
+| Sistema de Eventos | Observer pattern ,  mensageria e métricas desacopladas |
+| Observabilidade | Endpoint /api/v1/observability expondo efeitos dos listeners |
+| Documentação da API | springdoc-openapi ,  Swagger UI em /docs, OpenAPI 3 em /api-docs |
+| Testes | JUnit 5, Mockito, MockMvc ,  testes de integração + unidade |
 
 
 ---
@@ -60,33 +60,33 @@ Estrutura limpa e modular com separação de responsabilidades.
 
 ---
 
-## FAQ
+## Perguntas Frequentes
 
 <details>
-<summary><strong>What is this project?</strong></summary>
+<summary><strong>O que é este projeto?</strong></summary>
 
-A Java/Spring Boot study/project demonstrating core concepts.
+Um estudo/projeto em Java/Spring Boot demonstrando conceitos fundamentais.
 
 </details>
 
 <details>
-<summary><strong>How do I run it?</strong></summary>
+<summary><strong>Como executar?</strong></summary>
 
-See [Quick Start](#quick-start) for copy-paste commands.
-
-</details>
-
-<details>
-<summary><strong>Are there tests?</strong></summary>
-
-No automated tests in this repository.
+Veja [Início Rápido](#início-rápido) para comandos copiáveis.
 
 </details>
 
 <details>
-<summary><strong>Can I use this in production?</strong></summary>
+<summary><strong>Há testes?</strong></summary>
 
-This is a **study/portfolio project**. Review and harden (auth, persistence, monitoring, etc.) before production use.
+Nenhum teste automatizado neste repositório.
+
+</details>
+
+<details>
+<summary><strong>Posso usar em produção?</strong></summary>
+
+Este é um **projeto de estudo/portfólio**. Revise e endureça (auth, persistência, monitoramento, etc.) antes de usar em produção.
 
 </details>
 
@@ -94,15 +94,15 @@ This is a **study/portfolio project**. Review and harden (auth, persistence, mon
 
 ---
 
-## Documentation
+## Documentação
 
-- **Source Code** ,  Browse the `src/` directory for implementation details
-- **API Reference** ,  Swagger UI at `/docs` when running
-- **Architecture Diagram** ,  See [architecture.mermaid](docs/architecture.mermaid) (if present)
-- **Changelog** ,  [CHANGELOG.md](CHANGELOG.md) (if present)
-- **Contributing** ,  [CONTRIBUTING.md](CONTRIBUTING.md) (if present)
+- **Código-Fonte** ,  Navegue pelo diretório `src/` para detalhes de implementação
+- **Referência da API** ,  Swagger UI em `/docs` ao executar
+- **Diagrama de Arquitetura** ,  Veja [architecture.mermaid](docs/architecture.mermaid) (se presente)
+- **Changelog** ,  [CHANGELOG.md](CHANGELOG.md) (se presente)
+- **Contribuindo** ,  [CONTRIBUTING.md](CONTRIBUTING.md) (se presente)
 
-## License
+## Licença
 
 [MIT](LICENSE) ,  Kelvin Oliveira
 
@@ -110,8 +110,8 @@ This is a **study/portfolio project**. Review and harden (auth, persistence, mon
 
 <div align="center">
 
-**Built with** · Java 21 + Spring Boot 3 + Maven
+**Construído com** · Java 21 + Spring Boot 3 + Maven
 
-**Author** · [Kelvin Oliveira](https://github.com/KelvinOliveiraCode) · [Portfolio](https://kelvinoliveiracode.github.io/portfolio/)
+**Autor** · [Kelvin Oliveira](https://github.com/KelvinOliveiraCode) · [Portfolio](https://kelvinoliveiracode.github.io/portfolio/)
 
 </div>
