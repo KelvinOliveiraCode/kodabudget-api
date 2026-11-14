@@ -17,7 +17,7 @@ API funcional e testada (6 testes). O núcleo (uso de voz, tool calling) é uma 
 - **Assistente por texto** (`POST /api/v1/assistant/chat`): conversa com persona financeira e executa tools.
 - **Assistente por voz** (`POST /api/v1/assistant/voice`): envio de arquivo de áudio (multipart) transcrito por faster-whisper.
 - **Voz com resposta falada** (`POST /api/v1/assistant/voice/audio`): transcrição + resposta + demora retorna áudio gerado por edge-tts.
-- **Tool calling**: a IA chama 3 ferramentas do domínio — `createTransaction`, `listTransactions` e `monthlySummary` — sem nunca acessar a persistência diretamente.
+- Tool calling: a IA chama 3 ferramentas do domínio, `createTransaction`, `listTransactions` e `monthlySummary`, sem nunca acessar a persistência diretamente.
 - **Auditoria das tools** (`GET /api/v1/assistant/audit`): registro de cada chamada de ferramenta com timestamp.
 - **CRUD de transações** (`/api/v1/transactions`) com resumo mensal.
 - **Persistência** JPA com H2 (arquivo local, modo PostgreSQL).
@@ -26,9 +26,9 @@ API funcional e testada (6 testes). O núcleo (uso de voz, tool calling) é uma 
 ## Arquitetura
 
 Arquitetura limpa em camadas:
-- `application/` — casos de uso (CreateTransaction, ListTransactions, MonthlySummary) e comandos
-- `domain/` — entidades, categorias e o contrato `TransactionRepository`
-- `infrastructure/` — web (controllers), persistência (JPA adapter), IA (`AssistantService` + `BudgetTools`) e voz (Whisper/edge-tts)
+- `application/`, casos de uso (CreateTransaction, ListTransactions, MonthlySummary) e comandos
+- `domain/`, entidades, categorias e o contrato `TransactionRepository`
+- `infrastructure/`, web (controllers), persistência (JPA adapter), IA (`AssistantService` + `BudgetTools`) e voz (Whisper/edge-tts)
 - O `AssistantService` orquestra o `ChatClient` do Spring AI com o registro das tools.
 
 ```mermaid
@@ -49,7 +49,7 @@ flowchart LR
 
 - Java 21, Spring Boot 3.5.16
 - Spring Web, Spring Data JPA, Spring Validation
-- Spring AI (`spring-ai-starter-model-openai`) — ChatClient + tool calling
+- Spring AI (`spring-ai-starter-model-openai`), ChatClient + tool calling
 - H2 (arquivo, `MODE=PostgreSQL`)
 - Springdoc OpenAPI 2.8.17
 - Voz: Python `faster-whisper` (STT) e `edge-tts` (TTS), chamados via subprocess
@@ -58,7 +58,7 @@ flowchart LR
 
 ## Estrutura do repositório
 
-```
+```text
 kodabudget-api/
 ├── pom.xml · mvnw
 └── src/main/java/com/kodabudget/
@@ -139,10 +139,10 @@ CI roda `mvn -B verify` no push/PR para `main`.
 
 ## Decisões técnicas e trade-offs
 
-- **Tool calling em vez de o modelo gravar no banco**: a IA só chama tools; a persistência fica nos use cases, garantindo controle e auditoria.
+- Tool calling em vez de o modelo gravar no banco: a IA só chama tools; a persistência fica nos use cases, garantindo controle e auditoria.
 - **STT/TTS locais via subprocess Python** em vez de servidores SaaS: roda sem custo de API de voz, ao custo de exigir o ambiente Python instalado no host.
-- **H2 em arquivo com `MODE=PostgreSQL`**: simplicidade local que aproxima o SQL de um Postgres de produção.
-- **Base URL e modelo configuráveis**: permite apontar para provedores OpenAI-compatíveis sem mudança de código.
+- H2 em arquivo com `MODE=PostgreSQL`: simplicidade local que aproxima o SQL de um Postgres de produção.
+- Base URL e modelo configuráveis: permite apontar para provedores OpenAI-compatíveis sem mudança de código.
 
 ## Limitações conhecidas e roadmap
 
@@ -156,6 +156,6 @@ Projeto individual de Kelvin Oliveira, construído com agentes de IA orquestrado
 
 ## Licença e autor
 
-MIT — Copyright (c) 2026 Kelvin Rebelo de Oliveira.
+MIT. Copyright (c) 2026 Kelvin Rebelo de Oliveira.
 
 **Autor**: [Kelvin Oliveira](https://github.com/KelvinOliveiraCode) · [Portfólio](https://kelvinoliveiracode.github.io/portfolio/)
